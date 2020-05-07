@@ -9,8 +9,8 @@ env:
 
 phases: 
     install:
-    runtime-versions:
-      nodejs: 10
+      runtime-versions:
+        nodejs: 10
       commands:
         - npm install -g @angular/cli
         - npm install -g gulp
