@@ -1,0 +1,30 @@
+version: 0.2
+
+env:
+    variables:
+        CACHE_CONTROL: "86400"
+        S3_BUCKET: "s3://angulardemobucket"
+        BUILD_FOLDER: "dist"
+        BUILD_ENV: "prod"
+
+phases: 
+    install:
+    runtime-versions:
+      nodejs: 10
+      commands:
+        - npm install -g @angular/cli
+        - npm install -g gulp
+    build:
+      commands: 
+        - gulp
+    artifacts:
+      angular_artifacts:
+        files:
+          - '**/*'
+        base-directory: prod-build/my-app
+      nodejs_artifacts:
+        files: 
+          - server.js
+          - package.json
+        base-directory: prod-build
+      
