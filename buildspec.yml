@@ -17,14 +17,14 @@ phases:
     build:
       commands: 
         - gulp
-    artifacts:
-      angular_artifacts:
-        files:
-          - '**/*'
-        base-directory: prod-build/my-app
-      nodejs_artifacts:
-        files: 
-          - server.js
-          - package.json
-        base-directory: prod-build
+artifacts:
+  angular_artifacts:
+    files:
+      - '**/*'
+    base-directory: prod-build/my-app
+  nodejs_artifacts:
+    files: 
+      - server.js
+      - package.json
+    base-directory: prod-build
       
