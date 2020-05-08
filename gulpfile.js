@@ -3,7 +3,8 @@ const del = require('del');
 const fs   = require('fs');
 const zip = require('gulp-zip');
 const log = require('fancy-log');
-var exec = require('child_process').exec;
+
+var exec = require('child_process').execSync;
 
 const paths = {
   prod_build: 'prod-build',
@@ -32,7 +33,7 @@ function createProdBuildFolder() {
 
 function buildAngularCodeTask(cb) {
   log('building Angular code into the directory')
-  return exec('cd my-app && npm run build', function (err, stdout, stderr) {
+  return exec('cd my-app npm run build', function (err, stdout, stderr) {
     log(stdout);
     log(stderr);
     cb(err);
