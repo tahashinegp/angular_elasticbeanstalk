@@ -3,8 +3,9 @@ const del = require('del');
 const fs   = require('fs');
 const zip = require('gulp-zip');
 const log = require('fancy-log');
+var spawn = require('child_process').spawn;
 
-var exec = require('child_process').execSync;
+var exec = require('child_process').exec;
 
 const paths = {
   prod_build: 'prod-build',
@@ -31,7 +32,7 @@ function createProdBuildFolder() {
   return Promise.resolve('the value is ignored');
 }
 
-function buildAngularCodeTask(cb) {
+async function buildAngularCodeTask(cb) {
   log('building Angular code into the directory')
   return exec('cd my-app && npm run build', function (err, stdout, stderr) {
     log(stdout);
